@@ -1,0 +1,76 @@
+<img class="Tv1" style="width: 1280px; height: 1409px;position: relative" src="{{ url_for('static', filename='images/zyro_background.jpg') }}">
+    <div class="Group1" style="width: 1280px; height: 110px; left: 0px; top: 30px; position: absolute">
+        <div class="Rectangle1" style="width: 1280px; height: 110px; left: 0px; top: 0px; position: absolute; background: white"></div>
+        <img class="Image1" style="width: 75px; height: 74px; left: 278px; top: 18px; position: absolute" src="{{ url_for('static', filename='images/zyro_logo.jpg') }}" />
+        <img class="Image2" style="width: 75px; height: 74px; left: 945px; top: 18px; position: absolute" src="{{ url_for('static', filename='images/zyro_logo.jpg') }}" />
+        <div class="ImageClassificationWebsite" style="left: 416px; top: 26px; position: absolute; color: #1D2948; font-size: 40px; font-family: Kaushan Script; font-weight: 400; word-wrap: break-word">Image Classification Website</div>
+    </div>
+    <div class="Group2" style="width: 187px; height: 56px; left: 453px; top: 268px; position: absolute">
+        <form method="post" enctype="multipart/form-data" onsubmit="return handleFormSubmit()">
+            <div class="Rectangle2" style="width: 187px; height: 56px; left: 0px; top: 0px; position: absolute; background: rgba(255, 255, 255, 0.80); box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.50)"></div>
+            <input type="file" name="file" accept="jpg,.jpeg,.png" style="display: none;" id="fileInput" onchange="displayFileName()" />
+            <label for="fileInput" class="ChooseAFile" style="left: 19px; top: 13px; position: absolute; color: rgba(0, 0, 0, 0.80); font-size: 25px; font-family: Lato; font-weight: 400; word-wrap: break-word">Choose a File</label>
+            <button type="submit" style="width: 189px; height: 58px; left: 124px; top: 100px; position: absolute; background: white; border-radius: 20px; cursor: pointer">Upload</button>
+        </form>
+    </div>
+    
+    <div id="fileNameDisplay" class="NoFileChoosen" style="left: 688px; top: 281px; position: absolute; color: white; font-size: 25px; font-family: Lato; font-weight: 400; word-wrap: break-word">No File chosen</div>
+    
+    <script>
+        function displayFileName() {
+            var input = document.getElementById('fileInput');
+            var fileNameDisplay = document.getElementById('fileNameDisplay');
+            fileNameDisplay.textContent = input.files[0].name;
+        }
+    
+        function handleFormSubmit() {
+            // Add any additional form submission logic here
+            return true; // Returning true allows the form to submit
+        }
+    </script>
+    
+   <!-- Other HTML code remains unchanged -->
+
+
+<script>
+    function submitImage() {
+        // You can add code here to handle the form submission using JavaScript
+        // For demonstration purposes, I'll just simulate the form submission with a timeout
+        setTimeout(function() {
+            // Your existing code for handling the file upload simulation
+            uploadFile();
+        }, 2000); // Simulating a 2-second delay for demonstration
+    }
+</script>
+
+<!-- Other HTML code remains unchanged -->
+
+    
+    <script>
+        function uploadFile() {
+            // Simulating the server response with a timeout
+            setTimeout(function() {
+                // Replace the static values with the actual server response
+                document.getElementById("predictedClass").innerHTML = "Predicted Class";
+                document.getElementById("uploadedImage").src = "{{ image_path }}";
+                document.getElementById("uploadedImage").style.display = "block";
+            }, 2000); // Simulating a 2-second delay for demonstration
+        }
+    </script>
+
+    
+    {% if prediction is not none %}
+    <div class="Prediction" style="left: 442px; top: 457px; position: absolute">
+        <span style="color: white; font-size: 35px; font-family: Lato; font-weight: 800; word-wrap: break-word">Prediction </span>
+        <span style="color: white; font-size: 25px; font-family: Lato; font-weight: 400; word-wrap: break-word">:</span>
+    </div>
+    <div class="ClassName" id="predictedClass" style="left: 660px; top: 457px; position: absolute; color: white; font-size: 35px; font-family: Lato; font-weight: 400; word-wrap: break-word">{{ prediction }}</div>
+    <img id="uploadedImage" style="max-width: 200px; width: 100%; height: auto; left: 520px; top: 570px; position: absolute;" src="{{ image_path }}" alt="Uploaded Image" />
+    {% endif %}
+
+    <div class="Developers" style="left: 531px; top: 876px; position: absolute; color: white; font-size: 50px; font-family: Kaushan Script; font-weight: 400; word-wrap: break-word">Developers</div>
+    <div class="MayaluriAnushaAnusha21bce9143VitapstudentAcInChinthaSaiGaneshSaiganesh21bce9476VitapstudentAcInVitApUniversityAndhraPradesh" style="left: 239px; top: 1002px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Lato; font-weight: 400; word-wrap: break-word">Mayaluri Anusha  -  anusha.21bce9143@vitapstudent.ac.in<br/><br/>Chintha Sai Ganesh  -  saiganesh.21bce9476@vitapstudent.ac.in<br/><br/>VIT-AP UNIVERSITY, Andhra Pradesh</div>
+    <div class="Copyrights" style="width: 357px; left: 366px; top: 1315px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Lato; font-weight: 400; word-wrap: break-word">Copyrights  &copy; </div>
+    <div class="PheonixTeam" style="width: 357px; left: 555px; top: 1315px; position: absolute; text-align: center; color: white; font-size: 30px; font-family: Lato; font-weight: 400; word-wrap: break-word">PHEONIX Team</div>
+</div>
+
